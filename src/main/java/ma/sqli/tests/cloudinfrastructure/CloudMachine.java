@@ -19,6 +19,10 @@ public class CloudMachine {
         return name;
     }
 
+    public void setState(MachineState state) {
+        this.state = state;
+    }
+
     public String printMachine(){
         String machineDescription ;
 
@@ -28,19 +32,15 @@ public class CloudMachine {
     }
 
     public void goInactive(){
-        this.state.goInactive();
-        this.state=new MachineStateInactive();
+        this.state.goInactive(this);
     }
 
     public void goRunning(){
-        this.state.goRunning();
-        this.state = new MachineStateRunning();
-
+        this.state.goRunning(this);
     }
 
     public void goStopped(){
-        this.state.goStopped();
-        this.state = new MachineStateStopped();
+        this.state.goStopped(this);
     }
 
 
